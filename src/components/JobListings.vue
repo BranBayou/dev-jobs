@@ -24,7 +24,7 @@ const state = reactive({
 
 onMounted(async() => {
     try {
-        const response = await axios.get('http://localhost:5000/jobs');
+        const response = await axios.get('http://localhost:3000/jobs');
         state.jobs = response.data;
         //jobs.value = response.data;
     } catch (error) {
@@ -37,7 +37,8 @@ onMounted(async() => {
 </script>
 
 <template>
-    <section class="bg-green-50 px-4 py-10">
+    <div class="">
+        <section class="bg-green-50 px-4 py-10">
         <div class="container-xl lg:container m-auto">
             <h2 class="text-3xl font-bold text-green-500 mb-6 text-center">Browse Jobs</h2>
             <!-- Show Loading Spinner while loadign is true -->
@@ -58,6 +59,7 @@ onMounted(async() => {
         >View All Jobs
       </RouterLink>
     </section>
+    </div>
 </template>
 
 
