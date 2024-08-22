@@ -110,6 +110,20 @@
         "contactEmail": "wavypymus@mailinator.com",
         "contactPhone": "+1 (921) 842-3925"
       }
+    },
+    {
+      "id": "9abd",
+      "type": "Full-Time",
+      "title": "Expert vue dev",
+      "description": "Voluptatem aliquam n",
+      "salary": "$100K - $125K",
+      "location": "Ut molestiae est ve",
+      "company": {
+        "name": "Bird Strong Plc",
+        "description": "Perferendis reprehen",
+        "contactEmail": "konacynohe@mailinator.com",
+        "contactPhone": "+1 (671) 584-8305"
+      }
     }
   ]
 }
