@@ -85,33 +85,6 @@
       }
     },
     {
-      "id": "0971",
-      "type": "Part-Time",
-      "description": "Natus magni rerum vo",
-      "salary": "$125K - $150K",
-      "location": "Facilis tempora qui ",
-      "company": {
-        "name": "Dyer and Hoover LLC",
-        "description": "Sunt reprehenderit",
-        "contactEmail": "puloge@mailinator.com",
-        "contactPhone": "+1 (763) 188-4616"
-      }
-    },
-    {
-      "id": "91c0",
-      "type": "Part-Time",
-      "title": "Denton Moss",
-      "description": "Eligendi aliquid ali",
-      "salary": "$150K - $175K",
-      "location": "Ipsa voluptatem ad",
-      "company": {
-        "name": "Quinn and Andrews Inc",
-        "description": "Nobis provident adi",
-        "contactEmail": "wavypymus@mailinator.com",
-        "contactPhone": "+1 (921) 842-3925"
-      }
-    },
-    {
       "id": "9abd",
       "type": "Full-Time",
       "title": "Expert vue dev",

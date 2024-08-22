@@ -7,7 +7,7 @@ import { useToast } from 'vue-toastification';
 import axios from 'axios';
 
 const route = useRoute();
-const router = useRoute();
+const router = useRouter();
 const toast = useToast();
 
 const jobId = route.params.id;
@@ -21,9 +21,10 @@ const state = reactive({
 const deleteJob = async () => {
   try {
     await axios.delete(`/api/jobs/${jobId}`);
-    router.push('/');
     toast.success('Job deleted successfully!');
+    router.push('/jobs');
   } catch(error) {
+    console.error('error deleting job'. error);
     toast.error('Failed to delete job. Please try again later.');
   }
 }
@@ -107,7 +108,7 @@ onMounted(async() => {
             <div class="bg-white p-6 rounded-lg shadow-md mt-6">
               <h3 class="text-xl font-bold mb-6">Manage Job</h3>
               <RouterLink
-                to="`/jobs/edit/${state.job.id}`"
+                :to="`/jobs/edit/${state.job.id}`"
                 class="bg-green-500 hover:bg-green-600 text-white text-center font-bold py-2 px-4 rounded-full w-full focus:outline-none focus:shadow-outline mt-4 block"
                 >Edit Job
               </RouterLink>
