@@ -38,7 +38,7 @@ onMounted(async() => {
 
 <template>
     <div class="">
-        <section class="bg-green-50 px-4 py-10">
+        <section class="bg-blue-50 px-4 py-10">
         <div class="container-xl lg:container m-auto">
             <h2 class="text-3xl font-bold text-blue-500 mb-6 text-center">Browse Jobs</h2>
             <!-- Show Loading Spinner while loadign is true -->
