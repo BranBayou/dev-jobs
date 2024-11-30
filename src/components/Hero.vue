@@ -1,36 +1,48 @@
 <script setup>
 import { defineProps } from 'vue';
 
-defineProps({
-  title: {
-    type: String,
-    default: 'Become a Vue Dev',
-  },
-  subtitle: {
-    type: String,
-    default: 'Find the Vue job that fits your skills and needs',
-  }
-})
+// defineProps({
+//   title: {
+//     type: String,
+//     default: 'Become a Vue Dev',
+//   },
+//   subtitle: {
+//     type: String,
+//     default: 'Find the Vue job that fits your skills and needs',
+//   }
+// })
+import { ref } from 'vue';
 
+const slides = ref([
+  'First',
+  'Second',
+  'Third',
+  'Fourth',
+  'Fifth',
+]);
 </script>
 
 <template>
-    <section class="bg-blue-700 py-20 mb-4">
-      <div
-        class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center"
+    <v-carousel
+    height="400"
+    progress="primary"
+    hide-delimiters
+  >
+    <v-carousel-item
+      v-for="(slide, i) in slides"
+      :key="i"
+    >
+      <v-sheet
+        height="100%"
       >
-        <div class="text-center">
-          <h1
-            class="text-4xl font-extrabold text-white sm:text-5xl md:text-6xl"
-          >
-            {{ title }}
-          </h1>
-          <p class="my-4 text-xl text-white">
-            {{ subtitle }}
-          </p>
+        <div class="d-flex fill-height justify-center align-center">
+          <div class="text-h2">
+            {{ slide }} Slide
+          </div>
         </div>
-      </div>
-    </section>
+      </v-sheet>
+    </v-carousel-item>
+  </v-carousel>
 </template>
 
 <style scoped>
