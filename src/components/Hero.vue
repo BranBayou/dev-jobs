@@ -2,6 +2,7 @@
 import { reactive } from 'vue';
 import { useRouter } from 'vue-router';
 import heroImg from '@/assets/img/figma/hero.jpg';
+import CountUp from '@/components/CountUp.vue';
 import { categories, locations } from '@/data/jobs';
 
 const router = useRouter();
@@ -13,9 +14,9 @@ const search = reactive({
 });
 
 const stats = [
-  { icon: 'pi-briefcase', value: '25,850', label: 'Jobs' },
-  { icon: 'pi-users', value: '10,250', label: 'Candidates' },
-  { icon: 'pi-building', value: '18,400', label: 'Companies' },
+  { icon: 'pi-briefcase', value: 25850, label: 'Jobs' },
+  { icon: 'pi-users', value: 10250, label: 'Candidates' },
+  { icon: 'pi-building', value: 18400, label: 'Companies' },
 ];
 
 const brands = ['Spotify', 'Slack', 'Adobe', 'Asana', 'Linear'];
@@ -67,7 +68,7 @@ const submit = () => {
             <i :class="['pi', stat.icon, 'text-2xl text-white']"></i>
           </span>
           <div class="text-left text-white">
-            <p class="text-xl font-semibold">{{ stat.value }}</p>
+            <p class="text-xl font-semibold"><CountUp :value="stat.value" /></p>
             <p class="text-base opacity-80">{{ stat.label }}</p>
           </div>
         </div>
