@@ -3,6 +3,7 @@ import router from '@/router';
 import { reactive } from 'vue';
 import { useToast } from 'vue-toastification';
 import axios from 'axios';
+import PageHero from '@/components/PageHero.vue';
 
 const form = reactive({
     type: 'Full-Time',
@@ -37,7 +38,7 @@ const handleSubmit = async () => {
     try {
         const response = await axios.post('/api/jobs', newJob);
         toast.success('The job has been added successfully!')
-        router.push(`/jobs/${response.data.id}`);
+        router.push("/jobs");
     } catch (error) {
         console.error('Error adding job:', error);
         toast.error('Faild to add job.')
@@ -47,6 +48,7 @@ const handleSubmit = async () => {
 </script>
 
 <template>
+    <PageHero title="Post a Job" />
     <section class="bg-blue-50">
       <div class="container m-auto max-w-2xl py-24">
         <div

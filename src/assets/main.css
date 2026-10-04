@@ -1,3 +1,21 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+body {
+  @apply font-sans text-black bg-white;
+}
+
+@layer components {
+  .container-page {
+    @apply mx-auto w-full max-w-[1344px] px-4 md:px-6;
+  }
+  /* Brand colors are plain CSS here (not @apply bg-primary) so this file never depends on the theme config being reloaded. */
+  .btn-primary {
+    @apply inline-flex items-center justify-center rounded-lg px-5 text-base font-semibold text-white transition-colors;
+    background-color: #309689;
+  }
+  .btn-primary:hover {
+    background-color: #267a6f;
+  }
+}
