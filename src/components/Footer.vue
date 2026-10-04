@@ -73,7 +73,7 @@ const subscribe = () => {
       </div>
 
       <div class="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
-        <p class="text-sm text-white/50">&copy; Copyright Job Portal {{ currentYear }}. Designed by Figma.guru</p>
+        <p class="text-sm text-white/50">&copy; Copyright Job Portal {{ currentYear }}.</p>
         <div class="flex gap-5 text-base text-white">
           <a href="#" class="underline">Privacy Policy</a>
           <a href="#" class="underline">Terms &amp; Conditions</a>
