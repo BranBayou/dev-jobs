@@ -1,3 +1,6 @@
+// Vuetify's CSS reset must load before the app's styles, otherwise its `[type="button"] { color: inherit }`
+// beats same-specificity app classes like .btn-primary (white text turned black on <button>s).
+import 'vuetify/styles'
 import './assets/main.css'
 import 'primeicons/primeicons.css'
 import Toast from 'vue-toastification'
@@ -8,7 +11,6 @@ import { createApp } from 'vue'
 import { createPinia } from 'pinia'
 import App from './App.vue'
 
-import 'vuetify/styles'
 import { createVuetify } from 'vuetify'
 import * as components from 'vuetify/components'
 import * as directives from 'vuetify/directives'
