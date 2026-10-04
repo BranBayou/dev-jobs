@@ -1,9 +1,10 @@
 <script setup>
+import PageHero from '@/components/PageHero.vue';
 
 </script>
 
 <template>
-<h1>Edit Job</h1>
+<PageHero title="Edit Job" />
 </template>
 
 <style scoped>

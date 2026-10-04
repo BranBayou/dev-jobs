@@ -1,69 +1,38 @@
 <script setup>
-import { reactive, defineProps, onMounted } from 'vue'
-import JobListing from './JobListing.vue'
+import { computed } from 'vue';
 import { RouterLink } from 'vue-router';
-import PulseLoader from 'vue-spinner/src/PulseLoader.vue';
-import axios from 'axios';
+import JobCard from './JobCard.vue';
+import { jobs } from '@/data/jobs';
 
-defineProps({
-    limit: Number,
-    showButton: {
-        type: Boolean,
-        default: false
-    }
-})
+const props = defineProps({
+  limit: Number,
+  showButton: {
+    type: Boolean,
+    default: false,
+  },
+});
 
-// Using ref object
-// const jobs = ref([]);
-
-// Using reactive
-const state = reactive({
-    jobs: [],
-    isLoading: true
-})
-
-onMounted(async() => {
-    try {
-        const response = await axios.get('/api/jobs');
-        state.jobs = response.data;
-        //jobs.value = response.data;
-    } catch (error) {
-        console.error('Error fetching jobs:', error);
-    } finally {
-        state.isLoading = false;
-    }
- 
-})
+const recentJobs = computed(() =>
+  [...jobs]
+    .sort((a, b) => new Date(b.postedAt) - new Date(a.postedAt))
+    .slice(0, props.limit || jobs.length),
+);
 </script>
 
 <template>
-    <div class="">
-        <section class="bg-blue-50 px-4 py-10">
-        <div class="container-xl lg:container m-auto">
-            <h2 class="text-3xl font-bold text-blue-500 mb-6 text-center">Browse Jobs</h2>
-            <!-- Show Loading Spinner while loadign is true -->
-             <div v-if="state.isLoading" class="text-center text-gray-500 py-6">
-                <PulseLoader />
-             </div>
-
-             <!-- Job listing when done loading -->
-            <div v-else class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <JobListing v-for="job in state.jobs.slice(0, limit || state.jobs.length)" :key="job.id" :job="job"/>
-            </div>
+  <section class="py-[60px]">
+    <div class="container-page flex flex-col gap-[60px]">
+      <div class="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
+        <div class="flex flex-col gap-6">
+          <h2 class="text-3xl md:text-[50px] font-bold leading-tight">Recent Jobs Available</h2>
+          <p class="text-base">At eu lobortis pretium tincidunt amet lacus ut aenean aliquet</p>
         </div>
-    </section>
-    <section v-if="showButton" class="m-auto max-w-lg my-10 px-6">
-      <RouterLink
-        to="/jobs"
-        class="block bg-black text-white text-center py-4 px-6 rounded-xl hover:bg-gray-700"
-        >View All Jobs
-      </RouterLink>
-    </section>
+        <RouterLink v-if="showButton" to="/jobs" class="text-base font-semibold text-primary underline">View all</RouterLink>
+      </div>
+
+      <div class="flex flex-col gap-6">
+        <JobCard v-for="job in recentJobs" :key="job.id" :job="job" />
+      </div>
     </div>
+  </section>
 </template>
-
-
-
-<style scoped>
-
-</style>
