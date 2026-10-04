@@ -5,6 +5,8 @@ import vue from '@vitejs/plugin-vue'
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  // GitHub Pages serves the site from /<repo-name>/; the deploy workflow sets BASE_PATH. Local dev stays at /.
+  base: process.env.BASE_PATH || '/',
   plugins: [
     vue(),
   ],
